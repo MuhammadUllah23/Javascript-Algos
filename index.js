@@ -37,7 +37,7 @@ function practiceFrequency(str1, str2){
   for(let val in str1) {
     freq1[val] = (freq1[val] || 0) + 1
   }
-
+  
   for(let val in str2) {
     freq2[val] = (freq2[val] || 0) + 1
   }
