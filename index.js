@@ -26,6 +26,31 @@ function frequencyCounter(str1, str2){
   return true
 }
 
+// practice
+function practiceFrequency(str1, str2){
+  if(str1 .length !== str2.length) {
+     return false 
+  }
+  let freq1 = {}
+  let freq2 = {}
+
+  for(let val in str1) {
+    freq1[val] = (freq1[val] || 0) + 1
+  }
+
+  for(let val in str2) {
+    freq2[val] = (freq2[val] || 0) + 1
+  }
+
+  for(let val in freq1) {
+    if(freq1[val] !== freq2[val]) {
+      return false
+    }
+  }
+
+  return true
+}
+
 // -------------------------------------------------------------
 
 function multiplePointers(arr) {
