@@ -72,6 +72,23 @@ function multiplePointers(arr) {
   }
   }
 }
+
+function practiceMultiplePointers(arr, val) {
+  let right = arr.length - 1
+  let left = 0
+
+  while (left < right) {
+    let sum = arr[left] + arr[right]
+
+    if (sum === val) {
+      return [arr[left], arr[right]]
+    } else if (sum > val) {
+      right--
+    } else if (sum < val) {
+      left++
+    }
+  }
+}
 // -------------------------------------------------------------
 
 function countUniqueValues(arr) {
@@ -216,4 +233,11 @@ function binarySearch(arr, val){
 }
 
 
-console.log(binarySearch([1,2,3,4,5], 5))
+// console.log(binarySearch([1,2,3,4,5], 5))
+
+function palindrome(s) {
+//     make a copy of s and use the replace method with regex to get remove non-alphanumerical characters
+    let copyS = s.replace(/[^a-z0-9]/gi, '').toLowerCase()
+    return copyS
+};
+console.log(palindrome("A man, a plan, a canal: Panama"))
