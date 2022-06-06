@@ -108,9 +108,28 @@ function countUniqueValues(arr) {
       i++
       arr[i] = arr[j]
       j++
-    }}
+    }
+  }
   return i + 1
 }
+
+function practiceCountUniqueValues(arr) {
+  let i = 0
+  let j = 1
+
+  while (j < arr.length) {
+    if(arr[i] === arr[j]) {
+      j++
+    } else if(arr[i] !== arr[j]) {
+      i++
+      arr[i] = arr[j]
+      j++
+    }
+  }
+  return i + 1
+}
+
+console.log(practiceCountUniqueValues([1, 1, 2, 3, 3, 3, 4, 4, 5, 6, 6, 7]))
 
 // -------------------------------------------------------------
 
@@ -240,4 +259,3 @@ function palindrome(s) {
     let copyS = s.replace(/[^a-z0-9]/gi, '').toLowerCase()
     return copyS
 };
-console.log(palindrome("A man, a plan, a canal: Panama"))
