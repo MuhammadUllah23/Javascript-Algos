@@ -51,7 +51,7 @@ function practiceFrequency(str1, str2){
   return true
 }
 
-console.log(practiceFrequency("applesauce", "saucapple"))
+//console.log(practiceFrequency("applesauce", "saucapple"))
 
 // -------------------------------------------------------------
 
@@ -179,7 +179,7 @@ function naiveSearch(long, short) {
   }
   return count
 }
-// console.log(naiveSearch("lorlolie loled", "lol"))
+console.log(naiveSearch("lorlolie loled", "lol"))
 // -------------------------------------------------------------
 
 // Bubble Sort
