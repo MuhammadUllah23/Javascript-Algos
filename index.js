@@ -1,5 +1,12 @@
 // console.log()
 
+function swap(array, i, j) {
+  let temp = array[i]
+  array[i] = array[j]
+  array[j] = temp
+}
+// -------------------------------------------------------------
+
 function frequencyCounter(str1, str2){
   // True or false if the same type and number of characters are in each string.
   
@@ -363,8 +370,16 @@ function mergeSort(array) {
 // Swap the starting element (i.e. the pivot) with the pivot index.
 // Return the pivot helper.
 
-function pivotHelper(array, i=0, j=array.length-1) {
-  
+function pivotHelper(array, start=0, end=array.length-1) {
+  let pivot =  arr[start];
+  let swapIndx = start;
+  for (let i = start+1; i < array.length; i++){
+    if (pivot > arr[i]) {
+      swapIdx++;
+      
+      
+    }
+  }
   
 }
 
