@@ -280,23 +280,35 @@ function mergeArrays(arr1, arr2) {
     // 2.2) Once we exhaust one array, push in all remaining values from the other array.
 
   let result = []
-  for(let i = 0; i < (arr1.length < arr2.length ? arr1.length : arr2.length); i++){
-    return 
-    if (arr1[i] < arr2[i]) {
-      result.push(arr1[i])
-    }
-    if (arr1[i] > arr2[i]) {
-      result.push(arr2[i])
+  let i = 0;
+  let j = 0;
+  while(i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      result.push(arr1[i]);
+      i++
+    } else {
+      result.push(arr2[j])
+      j++
     }
   }
-  if(arr1.length < arr2.length){
-    result = [...result, ...arr2]
-  } else {
-    result = [...result, ...arr1]
+  while(i < arr1.length) {
+    result.push(arr1[i]) 
+    i++
+  }
+  while(j < arr2.length) {
+    result.push(arr2[j])
+    j++
   }
   return result
 }
-console.log(mergeArrays([8, 3, 5, 4], [7, 6, 1, 2]))
+// console.log(mergeArrays([5, 6, 7, 8], [1, 2, 3, 4]))
+// -------------------------------------------------------------
+function mergeSort(arr1, arr2) {
+  // 1) Break up the entire array into halves until you have arrays that are empty or have one element.
+  // 2) Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array. 
+  // 3) Once the array has been merged back together, return the merged (and sorted!) array.
+  
+}
 // -------------------------------------------------------------
 
 function linearSearch(arr, val) {
