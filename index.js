@@ -303,12 +303,18 @@ function mergeArrays(arr1, arr2) {
 }
 // console.log(mergeArrays([5, 6, 7, 8], [1, 2, 3, 4]))
 // -------------------------------------------------------------
-function mergeSort(arr1, arr2) {
+function mergeSort(array) {
   // 1) Break up the entire array into halves until you have arrays that are empty or have one element.
   // 2) Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array. 
   // 3) Once the array has been merged back together, return the merged (and sorted!) array.
-  
+  if (array.length <= 1) return array;
+  let mid = Math.floor(array.length/2)
+  let left = mergeSort(array.slice(0, mid))
+  let right = mergeSort(array.slice(mid))
+
+  return mergeArrays(left, right)
 }
+console.log(mergeSort([5, 6, 7, 8, 1, 2, 3, 4]))
 // -------------------------------------------------------------
 
 function linearSearch(arr, val) {
