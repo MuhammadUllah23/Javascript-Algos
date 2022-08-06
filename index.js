@@ -180,7 +180,41 @@ function naiveSearch(long, short) {
   return count
 }
 // console.log(naiveSearch("lorlolie loled", "lol"))
+
 // -------------------------------------------------------------
+
+function linearSearch(arr, val) {
+
+  for(let i = 0; i < arr.length; i++) {
+    if (val === arr[i]) {
+      return i
+    }
+  }
+  return -1
+}
+
+// -------------------------------------------------------------
+ 
+function binarySearch(arr, val){
+  let left = 0
+  let right = arr.length - 1
+  let middle = Math.round((left + right)/2)
+  while (arr[middle] !== val && left <= right) {
+    if(val > arr[middle]) {
+      left = middle + 1
+      middle = Math.round((left + right)/2)
+    } else if(val < arr[middle]) {
+      right = middle - 1
+      middle = Math.round((left + right)/2)
+    } 
+  }
+
+  return arr[middle] === val ? middle : -1
+}
+// console.log(binarySearch([1,2,3,4,5], 5))
+// -------------------------------------------------------------
+
+
 
 // Bubble Sort
 // The largest value bubbles to the top.
@@ -266,11 +300,12 @@ function practiceInsertionSort(arr) {
     for (j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
       arr[j + 1] = arr[j]
     }
+   
     arr[j + 1] = currentVal
   }
   return arr
 }
-// console.log(practiceInsertionSort([5,3,4,1,2]))
+// console.log(practiceInsertionSort([3,5,4,1,2]))
 // -------------------------------------------------------------
 
 function mergeArrays(arr1, arr2) {
@@ -303,6 +338,7 @@ function mergeArrays(arr1, arr2) {
 }
 // console.log(mergeArrays([5, 6, 7, 8], [1, 2, 3, 4]))
 // -------------------------------------------------------------
+
 function mergeSort(array) {
   // 1) Break up the entire array into halves until you have arrays that are empty or have one element.
   // 2) Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array. 
@@ -314,43 +350,23 @@ function mergeSort(array) {
 
   return mergeArrays(left, right)
 }
-console.log(mergeSort([5, 6, 7, 8, 1, 2, 3, 4]))
-// -------------------------------------------------------------
-
-function linearSearch(arr, val) {
-
-  for(let i = 0; i < arr.length; i++) {
-    if (val === arr[i]) {
-      return i
-    }
-  }
-  return -1
-}
+// console.log(mergeSort([ 7, 8, 1, 2]))
 
 // -------------------------------------------------------------
- 
-function binarySearch(arr, val){
-  let left = 0
-  let right = arr.length - 1
-  let middle = Math.round((left + right)/2)
-  while (arr[middle] !== val && left <= right) {
-    if(val > arr[middle]) {
-      left = middle + 1
-      middle = Math.round((left + right)/2)
-    } else if(val < arr[middle]) {
-      right = middle - 1
-      middle = Math.round((left + right)/2)
-    } 
-  }
 
-  return arr[middle] === val ? middle : -1
+// Pseudocode
+// Accept 3 arguments. An array, starting index with the default of 0, and ending index with the default of array.length - 1.
+// Grab the pivot from the start of the array.
+// Store the current pivot index in a variable to keep track of where pivot should end up.
+// Loop through array from start until end.
+  // If the pivot is greater than the current element, increment the pivot index variable and then swap the current element with the element at the pivot index.
+// Swap the starting element (i.e. the pivot) with the pivot index.
+// Return the pivot helper.
+
+function pivotHelper(array, i=0, j=array.length-1) {
+  
+  
 }
 
 
-// console.log(binarySearch([1,2,3,4,5], 5))
 
-function palindrome(s) {
-//     make a copy of s and use the replace method with regex to get remove non-alphanumerical characters
-    let copyS = s.replace(/[^a-z0-9]/gi, '').toLowerCase()
-    return copyS
-};
