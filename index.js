@@ -273,6 +273,18 @@ function practiceInsertionSort(arr) {
 console.log(practiceInsertionSort([5,3,4,1,2]))
 // -------------------------------------------------------------
 
+function mergeArray(arr1, arr2) {
+  // 1) Create an empty array, take a look at the smallest values in each input array.
+  
+  // 2) While there are still values we have not looked at...
+  
+    // 2.1) If the value in the first array is smaller than the value in the second array, push the value in the first array into our results and move on to the next value in the first array. Vice versa if the value in the second array is smaller.
+    // 2.2) Once we exhaust one array, push in all remaining values from the other array.
+
+  
+}
+// -------------------------------------------------------------
+
 function linearSearch(arr, val) {
 
   for(let i = 0; i < arr.length; i++) {
