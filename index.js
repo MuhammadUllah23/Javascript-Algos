@@ -383,5 +383,15 @@ function pivotHelper(array, start=0, end=array.length-1) {
   return swapIdx
 }
 
+// -------------------------------------------------------------
+
+// Pseudocode
+// Call the pivot on the array.
+// When the helper returns to you the updated pivot index, recursively call the pivotHelper on the subarray to the left of the index, and the subarray with to the right of the index.
+// Your base case occurs when you consider a subarray with less than 2 elements.
+
+function quickSort(array) {
+   
+}
 
 
