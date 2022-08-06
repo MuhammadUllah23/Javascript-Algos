@@ -372,15 +372,15 @@ function mergeSort(array) {
 
 function pivotHelper(array, start=0, end=array.length-1) {
   let pivot =  arr[start];
-  let swapIndx = start;
+  let swapIdx = start;
   for (let i = start+1; i < array.length; i++){
     if (pivot > arr[i]) {
       swapIdx++;
-      
-      
+      swap(array, swapIdx, i)
     }
   }
-  
+  swap(arr, start, swapIdx)
+  return swapIdx
 }
 
 
