@@ -440,5 +440,18 @@ function mostDigits(nums) {
 // Replace our existing array with values in our buckets, starting with 0 and going up to 9.
 // Return list.
 
+function radixSort(numbers) {
+  let maxDigits = mostDigits(numbers)
 
+  for(let k = 0; k < maxDigits; k++ ) {
+    let digitBuckets = Array.from({length: 10}, () => [])
+    for (let i = 0; i < numbers.length; i++) {
+      let digit = getDigit(numbers[i], k)
+      digitBuckets[digit].push(numbers[i])
+    }
+    numbers = [].concat(...digitBuckets)
+  }
+  return numbers
+}
+// console.log(radixSort([23,567,89,12234324,90]))
 
