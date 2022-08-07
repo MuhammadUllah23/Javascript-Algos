@@ -370,7 +370,7 @@ function mergeSort(array) {
 // Swap the starting element (i.e. the pivot) with the pivot index.
 // Return the pivot helper.
 
-function pivotHelper(array, start=0, end=array.length-1) {
+function pivotHelper(array, start=0) {
   let pivot =  array[start];
   let swapIdx = start;
   for (let i = start+1; i < array.length; i++){
@@ -392,7 +392,7 @@ function pivotHelper(array, start=0, end=array.length-1) {
 
 function quickSort(array, left=0, right=array.length-1) {
   if(left < right) {
-    let pivotIndex = pivotHelper(array, left, right)
+    let pivotIndex = pivotHelper(array, left)
 
     // left
     quickSort(array, left, pivotIndex - 1)
@@ -404,7 +404,13 @@ function quickSort(array, left=0, right=array.length-1) {
   return array
 }
 
-// console.log(quickSort([4, 6, 9, 1, 2, 5, 3]))
+// console.log(quickSort(["zebra", "banana", "fruit", "apples"]))
 // -------------------------------------------------------------
 
+// RADIX SORTER HELPERS
+
+function getDigit(num, i) {
+  // returns digit in num at the given place value
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+}
 
