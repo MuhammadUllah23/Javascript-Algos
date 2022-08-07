@@ -420,3 +420,14 @@ function digitCount(num) {
   return Math.floor(Math.log10(Math.abs(num))) + 1;
 }
 
+function mostDigits(nums) {
+  // Given an array of numbers, returns the number of digits in the largest number in the list
+  let maxDigits = 0;
+  for (let i = 0; i < nums.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(nums[i]));
+  }
+  return maxDigits;
+}
+
+// -------------------------------------------------------------
+
