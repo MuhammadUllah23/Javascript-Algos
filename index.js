@@ -384,7 +384,16 @@ function mergeSort(array) {
 
   return mergeArrays(left, right)
 }
-// console.log(mergeSort([ 7, 8, 1, 2]))
+
+function practiceMergeSort(array) {
+  if(array.length <= 1) return array
+  let mid = Math.floor(array.length/2)
+  let left = practiceMergeSort(array.slice(0, mid))
+  let right = practiceMergeSort(array.slice(mid))
+
+  return practiceMergeArrays(left, right)
+}
+console.log(practiceMergeSort([ 7, 8, 1, 2, 6, 3, 2, 4]))
 
 // -------------------------------------------------------------
 
