@@ -343,7 +343,34 @@ function mergeArrays(arr1, arr2) {
   }
   return result
 }
-// console.log(mergeArrays([5, 6, 7, 8], [1, 2, 3, 4]))
+
+function practiceMergeArrays(array1, array2) {
+  let result = []
+  let i = 0
+  let j = 0
+
+  while(i < array1.length && j < array2.length) {
+    if(array1[i] < array2[j]) {
+      result.push(array1[i])
+      i++
+    } else {
+      result.push(array2[j])
+      j++
+    }
+  }
+
+  while(i < array1.length) {
+    result.push(array1[i])
+    i++
+  }
+  while(j < array2.length) {
+    result.push(array2[j])
+    j++
+  }
+  
+  return result
+}
+// console.log(practiceMergeArrays([5, 6, 7, 8], [1, 2, 3, 4]))
 // -------------------------------------------------------------
 
 function mergeSort(array) {
@@ -454,4 +481,6 @@ function radixSort(numbers) {
   return numbers
 }
 // console.log(radixSort([23,567,89,12234324,90]))
+
+// -------------------------------------------------------------
 
