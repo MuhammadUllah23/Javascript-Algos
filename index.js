@@ -2,7 +2,7 @@
 
 function swap(array, i, j) {
   
- [array[j], array[i]] = [array[i], array[j]]
+ [array[i], array[j]] = [array[j], array[i]]
 
 }
 // -------------------------------------------------------------
@@ -393,7 +393,7 @@ function practiceMergeSort(array) {
 
   return practiceMergeArrays(left, right)
 }
-console.log(practiceMergeSort([ 7, 8, 1, 2, 6, 3, 2, 4]))
+// console.log(practiceMergeSort([ 7, 8, 1, 2, 6, 3, 2, 4]))
 
 // -------------------------------------------------------------
 
@@ -406,13 +406,14 @@ console.log(practiceMergeSort([ 7, 8, 1, 2, 6, 3, 2, 4]))
 // Swap the starting element (i.e. the pivot) with the pivot index.
 // Return the pivot helper.
 
-function pivotHelper(array, start=0) {
-  let pivot =  array[start];
+function pivotHelper(array, start=0, end) {
+  let pivot = array[start];
   let swapIdx = start;
-  for (let i = start+1; i < array.length; i++){
+  for (let i = start+1; i <= end; i++){
     if (pivot > array[i]) {
       swapIdx++;
       swap(array, swapIdx, i)
+      
     }
   }
   swap(array, start, swapIdx)
@@ -428,7 +429,7 @@ function pivotHelper(array, start=0) {
 
 function quickSort(array, left=0, right=array.length-1) {
   if(left < right) {
-    let pivotIndex = pivotHelper(array, left)
+    let pivotIndex = pivotHelper(array, left, right)
 
     // left
     quickSort(array, left, pivotIndex - 1)
@@ -440,7 +441,7 @@ function quickSort(array, left=0, right=array.length-1) {
   return array
 }
 
-// console.log(quickSort(["zebra", "banana", "fruit", "apples"]))
+console.log(quickSort([3, 2, 5, 9, 7, 4]))
 // -------------------------------------------------------------
 
 // RADIX SORTER HELPERS
@@ -492,4 +493,3 @@ function radixSort(numbers) {
 // console.log(radixSort([23,567,89,12234324,90]))
 
 // -------------------------------------------------------------
-
