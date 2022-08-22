@@ -443,6 +443,37 @@ function quickSort(array, left=0, right=array.length-1) {
 
 // console.log(quickSort([3, 2, 5, 9, 7, 4]))
 // -------------------------------------------------------------
+function practicePivotHelper(array, start=0, end) {
+  let pivot = array[start]
+  let swapIdx = start
+  
+  for (i = start+1; i <= end; i++) {
+    if(pivot > array[i]) {
+      swapIdx++
+      swap(array, swapIdx, i)
+    }
+  }
+  swap(array, start, swapIdx)
+  return swapIdx
+}
+
+function practiceQuickSort(array, left=0, right=array.length-1) {
+  if(left < right) {
+    
+    let pivotIdx = practicePivotHelper(array, left, right)
+
+    // left
+    practiceQuickSort(array, left, pivotIdx - 1)
+
+    // right
+    practiceQuickSort(array, pivotIdx + 1, right)
+  }
+
+  return array
+}
+
+// console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
+// -------------------------------------------------------------
 
 // RADIX SORTER HELPERS
 
@@ -494,36 +525,3 @@ function radixSort(numbers) {
 
 // -------------------------------------------------------------
 
-function practicePivotHelper(array, start=0, end) {
-  // It starts from the pivot index and iterates through the array to find the elements that are less than the pivot element.
-  // Using the swap method the elements that are less than will be swapped next to the pivot element or the other elements that are less than.
-  // The swapIdx variable will keep track of how many swaps was made which will also be the index number to swap the pivot element so all elements that are less than pivot element will be on the left and the pivot element will take its place.
-  let pivot = array[start]
-  let swapIdx = start
-  
-  for (i = start+1; i <= end; i++) {
-    if(pivot > array[i]) {
-      swapIdx++
-      swap(array, swapIdx, i)
-    }
-  }
-  swap(array, start, swapIdx)
-  return swapIdx
-}
-
-function practiceQuickSort(array, left=0, right=array.length-1) {
-  if(left < right) {
-    
-    let pivotIdx = practicePivotHelper(array, left, right)
-
-    // left
-    practiceQuickSort(array, left, pivotIdx - 1)
-
-    // right
-    practiceQuickSort(array, pivotIdx + 1, right)
-  }
-
-  return array
-}
-
-console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
