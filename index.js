@@ -511,3 +511,16 @@ function practicePivotHelper(array, start=0, end) {
   return swapIdx
 }
 
+function practiceQuickSort(array, left=0, right=array.length-1) {
+  if(left < right) {
+    let pivotIdx = practicePivotHelper(array, left, right)
+
+    // left
+    practiceQuickSort(array, left, pivotidx - 1)
+
+    // right
+    practiceQuickSort(array, pivotidx + 1, right)
+  }
+}
+
+// console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
