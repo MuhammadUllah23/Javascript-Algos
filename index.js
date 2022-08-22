@@ -500,27 +500,30 @@ function practicePivotHelper(array, start=0, end) {
   // The swapIdx variable will keep track of how many swaps was made which will also be the index number to swap the pivot element so all elements that are less than pivot element will be on the left and the pivot element will take its place.
   let pivot = array[start]
   let swapIdx = start
-
+  
   for (i = start+1; i <= end; i++) {
     if(pivot > array[i]) {
       swapIdx++
       swap(array, swapIdx, i)
     }
   }
-  swap(array, pivot, swapIdx)
+  swap(array, start, swapIdx)
   return swapIdx
 }
 
 function practiceQuickSort(array, left=0, right=array.length-1) {
   if(left < right) {
+    
     let pivotIdx = practicePivotHelper(array, left, right)
 
     // left
-    practiceQuickSort(array, left, pivotidx - 1)
+    practiceQuickSort(array, left, pivotIdx - 1)
 
     // right
-    practiceQuickSort(array, pivotidx + 1, right)
+    practiceQuickSort(array, pivotIdx + 1, right)
   }
+
+  return array
 }
 
-// console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
+console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
