@@ -446,33 +446,32 @@ function quickSort(array, left=0, right=array.length-1) {
 function practicePivotHelper(array, start=0, end) {
   let pivot = array[start]
   let swapIdx = start
-  
-  for (i = start+1; i <= end; i++) {
+
+  for(let i = start+1; i <= end; i++) {
     if(pivot > array[i]) {
       swapIdx++
       swap(array, swapIdx, i)
     }
   }
+
   swap(array, start, swapIdx)
+
   return swapIdx
 }
 
 function practiceQuickSort(array, left=0, right=array.length-1) {
-  if(left < right) {
-    
-    let pivotIdx = practicePivotHelper(array, left, right)
 
+  if( left < right) {
+    let pivot = practicePivotHelper(array, left, right)
     // left
-    practiceQuickSort(array, left, pivotIdx - 1)
-
+    practiceQuickSort(array, left, pivot - 1)
     // right
-    practiceQuickSort(array, pivotIdx + 1, right)
+    practiceQuickSort(array, pivot+1, right)
   }
-
-  return array
+ return array
 }
 
-// console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
+console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
 // -------------------------------------------------------------
 
 // RADIX SORTER HELPERS
