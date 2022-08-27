@@ -445,7 +445,7 @@ function practiceQuickSort(array, left=0, right=array.length-1) {
   return array
 }
 
-console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
+// console.log(practiceQuickSort([3, 2, 5, 9, 7, 4]))
 // -------------------------------------------------------------
 
 // RADIX SORTER HELPERS
@@ -498,3 +498,34 @@ function radixSort(numbers) {
 
 // -------------------------------------------------------------
 
+function longestPalindrome(s) {
+  // if (s.length === 1) return s
+  // let longest = ""
+  
+  // for(let i = 0; i < s.length - 1; i++ ) {
+  //   for (let j = i; j < s.length; j++) {
+  //     let word = s.slice(i, j+1)
+  //     if (word === word.split("").reverse().join("") && word.length > longest.length) {
+  //       longest = word
+  //     }  
+  //   }
+  // }
+  // return longest
+  let l = 0, r = 0;
+    for (let i = 0; i < s.length; i++) {
+        let left = i, right = i;
+        while (s[left] === s[right+1]) right++;
+        
+        while (s[left-1] && s[left-1] === s[right+1]) {
+          console.log([left, right])
+            left--;
+            right++;
+        }
+        
+        if (right-left > r-l) [r,l] = [right,left]
+    }
+    
+    return s.substring(l,r+1);
+};
+
+console.log(longestPalindrome("zudfweormatjycujjirzjpyrmaxurectxrtqedmmgergwdvjmjtstdhcihacqnothgttgqfywcpgnuvwglvfiuxteopoyizgehkwuvvkqxbnufkcbodlhdmbqyghkojrgokpwdhtdrwmvdegwycecrgjvuexlguayzcammupgeskrvpthrmwqaqsdcgycdupykppiyhwzwcplivjnnvwhqkkxildtyjltklcokcrgqnnwzzeuqioyahqpuskkpbxhvzvqyhlegmoviogzwuiqahiouhnecjwysmtarjjdjqdrkljawzasriouuiqkcwwqsxifbndjmyprdozhwaoibpqrthpcjphgsfbeqrqqoqiqqdicvybzxhklehzzapbvcyleljawowluqgxxwlrymzojshlwkmzwpixgfjljkmwdtjeabgyrpbqyyykmoaqdambpkyyvukalbrzoyoufjqeftniddsfqnilxlplselqatdgjziphvrbokofvuerpsvqmzakbyzxtxvyanvjpfyvyiivqusfrsufjanmfibgrkwtiuoykiavpbqeyfsuteuxxjiyxvlvgmehycdvxdorpepmsinvmyzeqeiikajopqedyopirmhymozernxzaueljjrhcsofwyddkpnvcvzixdjknikyhzmstvbducjcoyoeoaqruuewclzqqqxzpgykrkygxnmlsrjudoaejxkipkgmcoqtxhelvsizgdwdyjwuumazxfstoaxeqqxoqezakdqjwpkrbldpcbbxexquqrznavcrprnydufsidakvrpuzgfisdxreldbqfizngtrilnbqboxwmwienlkmmiuifrvytukcqcpeqdwwucymgvyrektsnfijdcdoawbcwkkjkqwzffnuqituihjaklvthulmcjrhqcyzvekzqlxgddjoir"))
